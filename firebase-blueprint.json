@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "users": "auth.uid == id",
+    "products": "resource.data.ownerId == auth.uid",
+    "transactions": "resource.data.ownerId == auth.uid",
+    "expenses": "resource.data.ownerId == auth.uid",
+    "employees": "resource.data.ownerId == auth.uid"
+  }
+}
