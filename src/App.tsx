@@ -85,7 +85,7 @@ export default function App() {
 
         if (u.email) {
           try {
-            const dbRef = getFirestore(auth.app, "ai-studio-inventorytracker-87e5e818-df94-48b7-b048-ee98b323b596");
+            const dbRef = getFirestore(auth.app);
             const empDoc = await getDoc(doc(dbRef, 'employees', u.email.toLowerCase()));
             if (empDoc.exists()) {
               foundEmployeeDoc = true;
@@ -99,7 +99,7 @@ export default function App() {
         
         if (!foundEmployeeDoc) {
           try {
-            const dbRef = getFirestore(auth.app, "ai-studio-inventorytracker-87e5e818-df94-48b7-b048-ee98b323b596");
+            const dbRef = getFirestore(auth.app);
             const empDocUid = await getDoc(doc(dbRef, 'employees', u.uid));
             if (empDocUid.exists()) {
               foundEmployeeDoc = true;
@@ -124,7 +124,7 @@ export default function App() {
         if (targetStoreId) {
           // Send automatic join request
           try {
-            const dbRef = getFirestore(auth.app, "ai-studio-inventorytracker-87e5e818-df94-48b7-b048-ee98b323b596");
+            const dbRef = getFirestore(auth.app);
             const reqRef = doc(collection(dbRef, 'joinRequests'));
             await setDoc(reqRef, {
               id: reqRef.id,
